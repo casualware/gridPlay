@@ -3,12 +3,12 @@
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.4-preview",
-  "sequence": 9004,
-  "size": 1947280,
-  "sha256": "d5920a7a70c7ab4253b27512f670d8ba4336e30a0ff71995372d49fafba2da2b",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.4-preview/gridplay-0.9.4-preview.bin",
-  "issued_at": 1792117718,
-  "expires_at": 1799893718,
-  "notes": "Scan a QR to open API-key setup on home Wi-Fi. GPT Live opens key setup when no API key is configured."
+  "version": "0.9.5-preview",
+  "sequence": 9005,
+  "size": 1951152,
+  "sha256": "b13ee2b629d982e334e2898963ab35f58e2b5ebb3f65299ed68dce5716bd3393",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.5-preview/gridplay-0.9.5-preview.bin",
+  "issued_at": 1792122718,
+  "expires_at": 1799898718,
+  "notes": "Short PWR press blanks the display; touch wakes without activating controls. Optional tilt menu navigation and face-down blanking in Display / motion settings."
 }
