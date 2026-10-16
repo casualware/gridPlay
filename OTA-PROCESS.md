@@ -1,8 +1,19 @@
 # gridPlay signed OTA releases
 
-Status: implementation and host tests in progress; deployment requires the public GitHub repository and a USB bootstrap. The existing tile remains on 0.8.5 until bootstrap is deliberately installed. Do not label the channel production-qualified until the hardware checklist below passes.
+Status: signed preview releases are hosted in `casualware/gridPlay`. The 0.9.0 USB bootstrap is installed on the pilot tile. Host tests/build and GitHub Actions publication pass; Wi-Fi upgrade and rollback qualification are tracked separately. Do not label the channel production-qualified until the hardware checklist below passes.
 
-## Operator workflow
+## SSH publishing (configured)
+
+The public `casualware/gridPlay` repository verifies candidate bundles in GitHub Actions and publishes using its short-lived built-in token. The private signing key stays on the release workstation. No local GitHub API login is needed.
+
+After building a new signed preview bundle:
+```sh
+python3 tools/ota/publish_ssh.py --repo casualware/gridPlay --release-dir firmware/releases/VERSION
+python3 tools/ota/publish_ssh.py --repo casualware/gridPlay --release-dir firmware/releases/VERSION --push
+```
+The first command is a dry run. The second pushes through the existing SSH identity, triggering publication. It verifies against the repository's existing public key, stages only the signed candidate assets, and never uploads the private key. Versioned releases are immutable; the preview pointer cannot move backward. The automated workflow permits preview only. Stable requires separate qualification and promotion approval.
+
+## Alternative operator workflow with GitHub CLI login
 
 1. Choose a **public** GitHub repository dedicated to firmware releases. Devices receive no GitHub token. Keep source private separately if needed.
 2. Create a dedicated signing key on the release workstation, outside tracked source:

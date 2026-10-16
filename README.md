@@ -13,3 +13,7 @@ Firmware is built and signed on the release workstation. Only the application im
 Do not change an existing version. Increase both firmware version and sequence for a new candidate. The workflow refuses to replace versioned release content or move the preview channel backward. Stable promotion is intentionally not enabled until interrupted-download and rollback qualification is complete.
 
 `candidate/` is the SSH transport for the latest signed release bundle. It is retained in Git history; release publishing does not require source or device credentials. Never commit private keys, OpenAI keys, Wi-Fi credentials, or full-flash recovery backups.
+
+## Operator commands
+
+See [OTA-PROCESS.md](OTA-PROCESS.md) for signing, SSH publication, and recovery. Use `tools/ota/publish_ssh.py --repo casualware/gridPlay --release-dir PATH --push` from the firmware workspace after building a signed candidate. The signing key remains on that workstation.
