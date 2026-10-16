@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+      - name: Test signing and tamper rejection
+        run: python3 tools/ota/test_release.py
       - name: Verify offline signature and publish immutable preview
         env:
           GH_TOKEN: ${{ github.token }}

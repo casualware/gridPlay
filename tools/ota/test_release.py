@@ -4,6 +4,7 @@ spec=importlib.util.spec_from_file_location('release',Path(__file__).with_name('
 class Releases(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
+  r.version=lambda:('0.9.0-preview',9000)
   cls.tmp=tempfile.TemporaryDirectory();cls.root=Path(cls.tmp.name);cls.key=cls.root/'key.pem';r.init_key(cls.key)
  @classmethod
  def tearDownClass(cls):cls.tmp.cleanup()
