@@ -1,6 +1,6 @@
 # gridPlay Visual Quick Guide
 
-For firmware **0.9.3-preview**. These screen illustrations follow the current layout; they are not photographs or device screenshots. Mint outlines highlight controls. Battery values and inst names are examples, and the QR and access code are placeholders.
+For firmware **0.9.4-preview**. These screen illustrations follow the current layout; they are not photographs or device screenshots. Mint outlines highlight controls. Battery values and inst names are examples, and the QR and access code are placeholders.
 
 ![Six illustrated screens with the main gridPlay controls](images/quick-guide.png)
 
@@ -8,7 +8,7 @@ For firmware **0.9.3-preview**. These screen illustrations follow the current la
 
 1. **Start:** From Home, choose **GPT Live** for standalone Wi-Fi use. Join and Create belong to the older USB companion workflow.
 2. **Connect:** Open **Settings → Wi-Fi setup**, join the tile’s temporary Wi-Fi, and open **http://192.168.4.1** to select your home network.
-3. **Set the key:** While on home Wi-Fi, open **Settings → API key**. On a phone on the same network, use the address and temporary code shown on your tile. You can also set the key during hotspot setup.
+3. **Set the key:** While on home Wi-Fi, open **Settings → API key**. On a phone on the same network, scan the setup QR, then enter the temporary code shown on your tile. You can also set the key during hotspot setup.
 4. **Talk:** Choose **New inst** or **Reconnect**. Wait for **Listening**, then speak. Green means listening, pink means speaking, and purple means working. **Mute** toggles the microphone; **Stop** ends the conversation.
 5. **See the scene:** Tap **Inst**, scan the actual QR on your tile, and keep the paired browser open. Tap **Back to GPT Live** to continue talking. The name under the orb identifies your inst.
 6. **Update:** Stop GPT Live, connect reliable power, and open **Settings → Device details → Updates → Check again**. Tap **Install update** when a version is offered, and keep power connected through restart.

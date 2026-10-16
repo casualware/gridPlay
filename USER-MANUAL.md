@@ -2,13 +2,13 @@
 
 Use your gridPlay tile to talk with Phantom through GPT Live, create and change a CasualOS scene, and install firmware updates over Wi-Fi. The tile uses its own microphone and speaker. Standalone GPT Live does not require a Mac or a helper app; scene tools require a paired browser on your phone or computer.
 
-This manual covers **0.9.3-preview** on the **Waveshare ESP32-S3 Touch AMOLED 2.16**. Updated October 15, 2026. The browser installer currently starts at 0.9.2-preview; install the latest update afterward to get battery status.
+This manual covers **0.9.4-preview** on the **Waveshare ESP32-S3 Touch AMOLED 2.16**. Updated October 15, 2026. The browser installer currently provides 0.9.4-preview, including battery status and API-key setup QR.
 
 [Install gridPlay](https://casualware.github.io/gridPlay/) · [Firmware releases](https://github.com/casualware/gridPlay/releases) · [Repository](https://github.com/casualware/gridPlay)
 
 ## Visual quick guide
 
-These are **illustrations of the 0.9.3-preview interface**, not device screenshots. Mint outlines highlight controls to use; example battery readings and inst names are illustrative. The QR and access-code areas contain placeholders.
+These are **illustrations of the 0.9.4-preview interface**, not device screenshots. Mint outlines highlight controls to use; example battery readings and inst names are illustrative. The QR and access-code areas contain placeholders.
 
 ![Six illustrated tile screens showing setup, GPT Live, inst pairing, and updates](images/quick-guide.png)
 
@@ -79,9 +79,11 @@ On the page at **http://192.168.4.1**, enter your OpenAI API key and tap **Set A
 
 1. Connect your phone or computer to the same private Wi-Fi network as the tile.
 2. Stop GPT Live, then open **Settings → API key** on the tile. You can also use **Device details → Set API key over Wi-Fi**.
-3. Keep the tile’s key page open. It shows the local web address and a temporary access code.
-4. Open that exact address in your browser, enter the access code and API key, choose whether to remember the key, and tap **Set API key**.
+3. Keep the tile’s key page open. It shows a QR code, the local web address, and a temporary access code.
+4. Scan the QR with your phone, or open the displayed address in your browser. Enter the access code and API key, choose whether to remember the key, and tap **Set API key**.
 5. Return to GPT Live on the tile.
+
+If you start GPT Live while connected to Wi-Fi without an API key, the tile opens this setup screen automatically. The QR contains only the local address, not your API key or access code. It disappears when the setup window closes.
 
 The access window closes after a successful save or removal, after ten minutes, or when you start GPT Live or leave the network. If the code expires, open a new window from the tile. Use **Remove API key** on the setup page to clear it.
 
@@ -201,7 +203,7 @@ Normal Wi-Fi updates retain saved settings. A temporary API key must be entered 
 | Phantom does not answer | Check for Listening and that the microphone is not muted. Wait until speaker playback finishes, then try again. Stop the session and run Audio test to check local audio. |
 | Voice works but scene changes fail | Open the correct inst, check its Tile tools pairing, and keep that browser active. Re-pair with the tile QR if necessary. |
 | Camera scanning is unavailable | Allow browser camera access, check that another app is not using the camera, or use the manual pairing option. A phone can also scan the tile’s QR directly. |
-| Battery status is missing | Check that firmware is 0.9.3-preview or later. The initial web installer currently provides 0.9.2-preview. |
+| Battery status is missing | Check that firmware is 0.9.3-preview or later. The current web installer includes battery status. |
 | No update is offered | Check the installed version and Wi-Fi connection. You may already have the newest Preview version. |
 | An update fails | Keep reliable power connected, check Wi-Fi, and retry Check again. Record the exact message if it repeats. |
 | The USB installer cannot find the tile | Use a data cable, close serial-monitor apps, and reconnect. If needed, hold BOOT while pressing and releasing RESET, release BOOT, then try again. |
