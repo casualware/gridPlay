@@ -3,12 +3,12 @@
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.3-preview",
-  "sequence": 9003,
-  "size": 1946960,
-  "sha256": "991747568c4510f382ab30b7f2a6acc9bb454858b8bb99a0183a471e2a8eb767",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.3-preview/gridplay-0.9.3-preview.bin",
-  "issued_at": 1792116277,
-  "expires_at": 1799892277,
-  "notes": "Battery percentage and charging indicator on every screen, with low-battery colors and details in Settings."
+  "version": "0.9.4-preview",
+  "sequence": 9004,
+  "size": 1947280,
+  "sha256": "d5920a7a70c7ab4253b27512f670d8ba4336e30a0ff71995372d49fafba2da2b",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.4-preview/gridplay-0.9.4-preview.bin",
+  "issued_at": 1792117718,
+  "expires_at": 1799893718,
+  "notes": "Scan a QR to open API-key setup on home Wi-Fi. GPT Live opens key setup when no API key is configured."
 }
