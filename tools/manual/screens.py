@@ -68,3 +68,10 @@ for i,(title,caption,shot) in enumerate(shots):
  dd.text((x,y),title,font=font(24),fill='#101A23');canvas.paste(shot,(x,y+40))
  dd.text((x,y+532),caption,font=font(16),fill='#435965')
 canvas.save(OUT/'quick-guide.png')
+# Additional 0.9.5 display/motion controls, illustrated with both options off.
+base();text(22,92,'Display and motion',24)
+button('Screen off',22,130,436,64,True)
+button('Motion navigation: Off',22,206,436,64,True)
+button('Face-down blanking: Off',22,282,436,64,True)
+for y,t in [(362,'To enable motion, lay the tile flat, face up.'),(383,'Tilt and hold to select; level it and tap.'),(404,'PWR short press blanks; tap to wake.')]:text(22,y,t,16)
+save('display-motion')

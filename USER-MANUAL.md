@@ -2,13 +2,13 @@
 
 Use your gridPlay tile to talk with Phantom through GPT Live, create and change a CasualOS scene, and install firmware updates over Wi-Fi. The tile uses its own microphone and speaker. Standalone GPT Live does not require a Mac or a helper app; scene tools require a paired browser on your phone or computer.
 
-This manual covers **0.9.4-preview** on the **Waveshare ESP32-S3 Touch AMOLED 2.16**. Updated October 15, 2026. The browser installer currently provides 0.9.4-preview, including battery status and API-key setup QR.
+This manual covers **0.9.5-preview** on the **Waveshare ESP32-S3 Touch AMOLED 2.16**. Updated October 15, 2026. The browser installer currently provides 0.9.5-preview, including battery status, API-key setup QR, and display controls.
 
 [Install gridPlay](https://casualware.github.io/gridPlay/) · [Firmware releases](https://github.com/casualware/gridPlay/releases) · [Repository](https://github.com/casualware/gridPlay)
 
 ## Visual quick guide
 
-These are **illustrations of the 0.9.4-preview interface**, not device screenshots. Mint outlines highlight controls to use; example battery readings and inst names are illustrative. The QR and access-code areas contain placeholders.
+These are **illustrations of the core interface from 0.9.4-preview**, not device screenshots. Mint outlines highlight controls to use; example battery readings and inst names are illustrative. The QR and access-code areas contain placeholders.
 
 ![Six illustrated tile screens showing setup, GPT Live, inst pairing, and updates](images/quick-guide.png)
 
@@ -24,6 +24,7 @@ These are **illustrations of the 0.9.4-preview interface**, not device screensho
 - [Talk with GPT Live](#talk-with-gpt-live)
 - [Open and pair your inst](#open-and-pair-your-inst)
 - [Understand the controls](#understand-the-controls)
+- [Display and motion controls](#display-and-motion-controls)
 - [Battery and power](#battery-and-power)
 - [Update the firmware](#update-the-firmware)
 - [Troubleshooting](#troubleshooting)
@@ -78,7 +79,7 @@ On the page at **http://192.168.4.1**, enter your OpenAI API key and tap **Set A
 ### While already on home Wi-Fi
 
 1. Connect your phone or computer to the same private Wi-Fi network as the tile.
-2. Stop GPT Live, then open **Settings → API key** on the tile. You can also use **Device details → Set API key over Wi-Fi**.
+2. Stop GPT Live, then open **Settings → API key** on the tile. You can also use **Device details → API key**.
 3. Keep the tile’s key page open. It shows a QR code, the local web address, and a temporary access code.
 4. Scan the QR with your phone, or open the displayed address in your browser. Enter the access code and API key, choose whether to remember the key, and tap **Set API key**.
 5. Return to GPT Live on the tile.
@@ -163,6 +164,38 @@ Insts created by this preview are **public**. Treat scene content as public, and
 | Settings | **Device details** | View device, battery, and network information; open Updates. Longer details can be scrolled. |
 
 The Home screen also includes **Join**, **Create**, and **Recent insts** for the older USB companion workflow. Those controls require the companion. For standalone Wi-Fi use, enter **GPT Live** and use **New inst** or **Reconnect** instead.
+
+## Display and motion controls
+
+![Illustration of Display and motion settings in 0.9.5-preview](images/display-motion.png)
+
+*Illustrated layout; both optional motion features start off.*
+
+### Use the physical button
+
+**Short-press the tile’s PWR power button to blank the display. Tap the screen once to wake it.** The first touch only wakes the display; lift your finger before using a control. A second short PWR press can also wake it. Use PWR, not BOOT or RESET. Long-press power-off behavior is unchanged.
+
+Blanking affects the display only: GPT Live, microphone state, speaker, Wi-Fi, and updates continue running. Use **Mute** or **Stop** if you also want to stop listening or end the conversation.
+
+An on-screen **Screen off** button is available at **Settings → Device details → Display / motion**.
+
+### Enable motion navigation
+
+Both motion options start off by default and are saved when changed.
+
+1. Open **Settings → Device details → Display / motion**.
+2. Lay the tile flat with its display facing up and hold it still.
+3. Tap **Motion navigation: Off** to enable it. If the tile asks you to lay it flat, do so and tap again.
+4. Start level, then tilt in one of four directions and hold for roughly two-thirds of a second. The displayed selection will be **Home**, **GPT Live**, **Inst**, or **Settings**.
+5. Return the tile to level. Once it says **tap to open**, tap the screen to open that selection. Tilt alone never starts a voice session, installs firmware, or changes your key.
+
+Watch the selection label as you learn the directions for your tile’s orientation. Avoid diagonal tilts. Fast movement is ignored. Navigation is disabled while the screen is blank or a firmware update is busy. You can turn the option off on the same settings page.
+
+### Blank the display face down
+
+With the tile flat and face up, enable **Face-down blanking** on the same settings page. Place it face down and let it rest for about one second to blank the display. Turn it face up to wake it. A tap also wakes it; if it remains face down it can blank again after a short delay.
+
+A display blanked manually with PWR or Screen off stays blank when lifted: use a tap or short PWR press to wake it. Motion features require a working IMU. If readings become unavailable, normal touch and the PWR display control remain available.
 
 ## Battery and power
 

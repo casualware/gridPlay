@@ -30,4 +30,4 @@ See [OTA-PROCESS.md](OTA-PROCESS.md) for signing, SSH publication, and recovery.
 
 ## Browser installer
 
-`site/` hosts the first-install page and a signed factory image. The Pages workflow verifies the offline signature, complete image hash, embedded app hash, blank NVS and flash map before deployment. Factory images are produced from build outputs, never device backups. The initial bootstrap is pinned to 0.9.4-preview; later OTA releases do not automatically replace it. Refresh it deliberately after hardware testing, using `tools/installer/package.py` in the firmware workspace. No device secrets enter this repository.
+`site/` hosts the first-install page and a signed factory image. The Pages workflow verifies the offline signature, complete image hash, embedded app hash, blank NVS and flash map before deployment. Factory images are produced from build outputs, never device backups. The initial bootstrap is pinned to 0.9.5-preview; later OTA releases do not automatically replace it. Refresh it deliberately after hardware testing, using `tools/installer/package.py` in the firmware workspace. No device secrets enter this repository.

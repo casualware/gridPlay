@@ -1,6 +1,6 @@
 # gridPlay Visual Quick Guide
 
-For firmware **0.9.4-preview**. These screen illustrations follow the current layout; they are not photographs or device screenshots. Mint outlines highlight controls. Battery values and inst names are examples, and the QR and access code are placeholders.
+Core screen guide for **0.9.5-preview**. Illustrations show the unchanged main screens from 0.9.4-preview. These screen illustrations follow the current layout; they are not photographs or device screenshots. Mint outlines highlight controls. Battery values and inst names are examples, and the QR and access code are placeholders.
 
 ![Six illustrated screens with the main gridPlay controls](images/quick-guide.png)
 
@@ -20,3 +20,9 @@ For firmware **0.9.4-preview**. These screen illustrations follow the current la
 ## Individual screen images
 
 [Home](images/home.png) · [Settings](images/settings.png) · [API key](images/api-key.png) · [GPT Live](images/gpt-live.png) · [Inst QR](images/inst.png) · [Updates](images/updates.png)
+
+## Display shortcuts in 0.9.5
+
+**Short-press PWR to blank the display; tap once to wake it.** Voice and Wi-Fi stay active. The first touch only wakes the display.
+
+Open **Settings → Device details → Display / motion** for Screen off, optional tilt navigation, and optional face-down blanking. Enable motion while the tile rests flat, screen up. Hold a tilt until a menu name appears, return to level, then tap to open it. With face-down blanking enabled, resting face down blanks the display and turning face up wakes it.
