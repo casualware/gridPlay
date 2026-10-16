@@ -3,12 +3,12 @@
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.1-preview",
-  "sequence": 9001,
-  "size": 1945168,
-  "sha256": "a32c47d4a41124ba14babf18eb12a5fec83d01fa56270603e9cd44cf735be978",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.1-preview/gridplay-0.9.1-preview.bin",
-  "issued_at": 1792114787,
-  "expires_at": 1799890787,
-  "notes": "Pilot OTA qualification: verifies a signed Wi-Fi upgrade and startup health confirmation."
+  "version": "0.9.2-preview",
+  "sequence": 9002,
+  "size": 1945280,
+  "sha256": "8c9e07b2976d27e8bb4ca2465e50026c2a35ddf7c7fb21672a5bda110204bc86",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.2-preview/gridplay-0.9.2-preview.bin",
+  "issued_at": 1792115216,
+  "expires_at": 1799891216,
+  "notes": "Larger Settings, Wi-Fi, and API key buttons with more spacing and scrollable device details."
 }
