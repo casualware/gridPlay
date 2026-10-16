@@ -2,6 +2,10 @@
 
 Signed pilot firmware for the Waveshare ESP32-S3 Touch AMOLED 2.16 tile.
 
+## User manual
+
+**[Read the gridPlay Tile User Manual →](USER-MANUAL.md)** — first setup, GPT Live, QR pairing, controls, battery status, Wi-Fi updates, and troubleshooting.
+
 ## Install
 
 **[Install gridPlay in your browser →](https://casualware.github.io/gridPlay/)**
