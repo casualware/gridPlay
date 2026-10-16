@@ -1,0 +1,17 @@
+{
+  "name": "gridPlay Preview",
+  "version": "0.9.2-preview",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "gridplay-0.9.2-preview-factory.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,9 @@ Signed pilot firmware for the Waveshare ESP32-S3 Touch AMOLED 2.16 tile.
 
 ## Install
 
-The first signed-update bootstrap requires USB. Configured tiles use **Settings → Device details → Updates**. Keep external power connected. The `ota-preview` release contains the current signed channel manifest; immutable application images live under `vVERSION` releases. Preview builds are for qualification, not production deployment.
+**[Install gridPlay in your browser →](https://casualware.github.io/gridPlay/)**
+
+Connect a new Waveshare ESP32-S3 Touch AMOLED 2.16 using a USB data cable and open the installer in desktop Chrome or Edge. First-time installation erases all device settings. Then configure Wi-Fi and your API key on the tile. The first signed-update bootstrap requires USB. Configured tiles use **Settings → Device details → Updates**. Keep external power connected. The `ota-preview` release contains the current signed channel manifest; immutable application images live under `vVERSION` releases. Preview builds are for qualification, not production deployment.
 
 ## Publishing over SSH
 
@@ -17,3 +19,7 @@ Do not change an existing version. Increase both firmware version and sequence f
 ## Operator commands
 
 See [OTA-PROCESS.md](OTA-PROCESS.md) for signing, SSH publication, and recovery. Use `tools/ota/publish_ssh.py --repo casualware/gridPlay --release-dir PATH --push` from the firmware workspace after building a signed candidate. The signing key remains on that workstation.
+
+## Browser installer
+
+`site/` hosts the first-install page and a signed factory image. The Pages workflow verifies the offline signature, complete image hash, embedded app hash, blank NVS and flash map before deployment. Factory images are produced from build outputs, never device backups. The initial bootstrap is pinned to 0.9.2-preview; later OTA releases do not automatically replace it. Refresh it deliberately after hardware testing, using `tools/installer/package.py` in the firmware workspace. No device secrets enter this repository.
