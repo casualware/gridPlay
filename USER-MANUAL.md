@@ -6,8 +6,17 @@ This manual covers **0.9.3-preview** on the **Waveshare ESP32-S3 Touch AMOLED 2.
 
 [Install gridPlay](https://casualware.github.io/gridPlay/) · [Firmware releases](https://github.com/casualware/gridPlay/releases) · [Repository](https://github.com/casualware/gridPlay)
 
+## Visual quick guide
+
+These are **illustrations of the 0.9.3-preview interface**, not device screenshots. Mint outlines highlight controls to use; example battery readings and inst names are illustrative. The QR and access-code areas contain placeholders.
+
+![Six illustrated tile screens showing setup, GPT Live, inst pairing, and updates](images/quick-guide.png)
+
+[Open the full-size image](images/quick-guide.png) · [Read the short quick guide](QUICK-GUIDE.md)
+
 ## Contents
 
+- [Visual quick guide](#visual-quick-guide)
 - [Quick start](#quick-start)
 - [Install on a new tile](#install-on-a-new-tile)
 - [Connect to Wi-Fi](#connect-to-wi-fi)
