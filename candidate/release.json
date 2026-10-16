@@ -3,12 +3,12 @@
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.2-preview",
-  "sequence": 9002,
-  "size": 1945280,
-  "sha256": "8c9e07b2976d27e8bb4ca2465e50026c2a35ddf7c7fb21672a5bda110204bc86",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.2-preview/gridplay-0.9.2-preview.bin",
-  "issued_at": 1792115216,
-  "expires_at": 1799891216,
-  "notes": "Larger Settings, Wi-Fi, and API key buttons with more spacing and scrollable device details."
+  "version": "0.9.3-preview",
+  "sequence": 9003,
+  "size": 1946960,
+  "sha256": "991747568c4510f382ab30b7f2a6acc9bb454858b8bb99a0183a471e2a8eb767",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.3-preview/gridplay-0.9.3-preview.bin",
+  "issued_at": 1792116277,
+  "expires_at": 1799892277,
+  "notes": "Battery percentage and charging indicator on every screen, with low-battery colors and details in Settings."
 }
