@@ -1,0 +1,23 @@
+name: Publish signed preview
+on:
+  push:
+    branches: [main]
+    paths: ['candidate/**', 'tools/ota/**', 'keys/**', '.github/workflows/publish-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gridplay-preview-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify offline signature and publish immutable preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/ota/publish_ci.py
