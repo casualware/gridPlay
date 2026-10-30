@@ -9,7 +9,9 @@ def main():
  repo=os.environ['GITHUB_REPOSITORY'];root=ROOT/'candidate';meta=json.loads((root/'release.json').read_text());name='gridplay-'+meta['version']+'.bin'
  signed=verify(root/'manifest.json',root/name,ROOT/'keys/ota-public.pem')
  if signed!=meta or signed['channel']!='preview' or signed['url']!=f'https://github.com/{repo}/releases/download/v{meta["version"]}/{name}':raise ValueError('Candidate metadata/preview repository mismatch')
- tag='v'+meta['version'];channel='ota-preview'
+ program=meta.get('program','gptLive')
+ if program not in ('gptLive','test'):raise ValueError('Unknown program')
+ tag='v'+meta['version'];channel='ota-preview'+('' if program=='gptLive' else '-'+program)
  existing=subprocess.run(['gh','release','view',tag,'--repo',repo,'--json','isDraft'],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
  if existing.returncode==0:
   if json.loads(existing.stdout)['isDraft']:raise ValueError('Existing version is draft; refusing to change its publication state')
@@ -36,5 +38,15 @@ def main():
     previous=json.loads(base64.b64decode(json.loads((Path(tmp)/'manifest.json').read_text())['payload']))
     if previous['sequence']>meta['sequence']:raise ValueError('Channel already points to a newer sequence')
  gh('release','upload',channel,str(root/'manifest.json'),'--repo',repo,'--clobber')
+ # Discovery carries IDs only; each image still requires a matching signed program.
+ with tempfile.TemporaryDirectory() as tmp:
+  catalog=Path(tmp)/'programs.json';programs=['gptLive']
+  result=subprocess.run(['gh','release','download','ota-preview','--repo',repo,'--pattern','programs.json','--dir',tmp],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+  if result.returncode==0:
+   old=json.loads(catalog.read_text());programs=old['programs']
+  if program not in programs:programs.append(program)
+  if len(programs)>12 or any(not isinstance(p,str) or not __import__('re').fullmatch(r'[A-Za-z0-9_-]{1,15}',p) for p in programs):raise ValueError('Invalid program catalog')
+  catalog.write_text(json.dumps({'schema':1,'programs':programs})+'\n')
+  gh('release','upload','ota-preview',str(catalog),'--repo',repo,'--clobber')
  print('Published verified pilot release and preview channel:',tag)
 if __name__=='__main__':main()

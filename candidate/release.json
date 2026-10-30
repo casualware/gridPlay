@@ -1,14 +1,15 @@
 {
   "schema": 1,
+  "program": "gptLive",
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.5-preview",
-  "sequence": 9005,
-  "size": 1951152,
-  "sha256": "b13ee2b629d982e334e2898963ab35f58e2b5ebb3f65299ed68dce5716bd3393",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.5-preview/gridplay-0.9.5-preview.bin",
-  "issued_at": 1792122718,
-  "expires_at": 1799898718,
-  "notes": "Short PWR press blanks the display; touch wakes without activating controls. Optional tilt menu navigation and face-down blanking in Display / motion settings."
+  "version": "0.9.6-preview",
+  "sequence": 9006,
+  "size": 1954240,
+  "sha256": "dc5941e647cd75e1211565c7a792ab6a9d5d19622c3e66df5b4d3c4cefaebe18",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.6-preview/gridplay-0.9.6-preview.bin",
+  "issued_at": 1793376069,
+  "expires_at": 1801152069,
+  "notes": "Program selector with shared signed updates; gptLive default and test tap-counter switching."
 }

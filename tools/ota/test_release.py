@@ -17,6 +17,10 @@ class Releases(unittest.TestCase):
   with self.assertRaises(ValueError):r.verify(manifest,image,pub)
   image.write_bytes(original);envelope=json.loads(manifest.read_text());payload=json.loads(base64.b64decode(envelope['payload']));payload['sequence']+=1;envelope['payload']=base64.b64encode(json.dumps(payload).encode()).decode();manifest.write_text(json.dumps(envelope))
   with self.assertRaises(Exception):r.verify(manifest,image,pub)
+ def test_program_identity(self):
+  out=self.release('identity');m=r.verify(out/'manifest.json',next(out.glob('*.bin')),out/'public-key.pem');self.assertEqual(m['program'],'gptLive')
+  image=next(out.glob('*.bin'));out=r.package(image,self.key,'test/gridplay','preview',self.root/'test-program','Test program','test')
+  m=r.verify(out/'manifest.json',next(out.glob('*.bin')),out/'public-key.pem');self.assertEqual(m['program'],'test');self.assertEqual(m['version'],'0.9.0-preview-test')
  def test_key_permissions_and_no_overwrite(self):
   self.assertEqual(os.stat(self.key).st_mode&0o777,0o600)
   with self.assertRaises(FileExistsError):r.init_key(self.key)

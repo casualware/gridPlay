@@ -19,7 +19,7 @@ def repo_name(value):
 
 def version():
  s=(ROOT/'firmware/GridPlay/FirmwareVersion.h').read_text()
- return re.search(r'VERSION\[\]="([^"]+)"',s)[1],int(re.search(r'FIRMWARE_SEQUENCE=(\d+)',s)[1])
+ return re.search(r'VERSION=.*? : "([^"]+)"',s)[1],int(re.search(r'FIRMWARE_SEQUENCE=(\d+)',s)[1])
 
 def init_key(path):
  path=Path(path);path.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
@@ -37,15 +37,16 @@ def configure(repo,key,channel):
  text+=f'static constexpr char OTA_CHANNEL[]="{channel}";\nstatic constexpr char OTA_PUBLIC_KEY[]=R"KEY({pem})KEY";\n'
  (ROOT/'firmware/GridPlay/OtaConfig.h').write_text(text)
 
-def package(image,key,repo,channel,out,notes):
- repo=repo_name(repo);v,seq=version();data=Path(image).read_bytes()
+def package(image,key,repo,channel,out,notes,program="gptLive"):
+ if program not in ("gptLive","test"):raise ValueError("Unknown program")
+ repo=repo_name(repo);v,seq=version();v+=('-test' if program=='test' else '');data=Path(image).read_bytes()
  if len(notes.encode())>320:raise ValueError('Release notes must fit 320 UTF-8 bytes')
  if channel=='stable' and '-' in v:raise ValueError('Prerelease firmware cannot be promoted to stable')
  if not 100000<len(data)<=MAX_IMAGE or data[0]!=0xe9 or int.from_bytes(data[12:14],'little')!=9:raise ValueError('Expected ESP32-S3 application image, not merged flash image')
  out=Path(out)
  if out.exists():raise ValueError('Release directory already exists; releases are immutable')
  name=f'gridplay-{v}.bin';now=int(time.time())
- payload={'schema':1,'board':BOARD,'layout':LAYOUT,'channel':channel,'version':v,'sequence':seq,'size':len(data),'sha256':hashlib.sha256(data).hexdigest(),'url':f'https://github.com/{repo}/releases/download/v{v}/{name}','issued_at':now,'expires_at':now+90*86400,'notes':notes}
+ payload={'schema':1,'program':program,'board':BOARD,'layout':LAYOUT,'channel':channel,'version':v,'sequence':seq,'size':len(data),'sha256':hashlib.sha256(data).hexdigest(),'url':f'https://github.com/{repo}/releases/download/v{v}/{name}','issued_at':now,'expires_at':now+90*86400,'notes':notes}
  raw=json.dumps(payload,separators=(',',':'),sort_keys=True).encode()
  if len(raw)>4096:raise ValueError('Manifest payload too large')
  # Sign exact bytes; device never reconstructs JSON for signature verification.
@@ -69,7 +70,7 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
  k=sub.add_parser('init-key');k.add_argument('--private',required=True)
  c=sub.add_parser('configure');c.add_argument('--repo',required=True);c.add_argument('--private',required=True);c.add_argument('--channel',choices=['preview','stable'],default='preview')
- b=sub.add_parser('build');b.add_argument('--repo',required=True);b.add_argument('--private',required=True);b.add_argument('--channel',choices=['preview','stable'],default='preview');b.add_argument('--out',required=True);b.add_argument('--notes',required=True)
+ b=sub.add_parser('build');b.add_argument('--program',choices=['gptLive','test'],default='gptLive');b.add_argument('--repo',required=True);b.add_argument('--private',required=True);b.add_argument('--channel',choices=['preview','stable'],default='preview');b.add_argument('--out',required=True);b.add_argument('--notes',required=True)
  v=sub.add_parser('verify');v.add_argument('--manifest',required=True);v.add_argument('--image',required=True);v.add_argument('--public',required=True)
  a=p.parse_args()
  if a.command=='init-key':init_key(a.private);print('Signing key created with owner-only permissions. Back it up securely; it is never uploaded.')
@@ -77,6 +78,6 @@ def main():
  elif a.command=='verify':verify(a.manifest,a.image,a.public);print('Signature, board, image size and SHA-256 verified.')
  elif a.command=='build':
   configure(a.repo,a.private,a.channel)
-  subprocess.run(['sh','firmware/build.sh'],cwd=ROOT,check=True)
-  package(ROOT/'firmware/dist/GridPlay.ino.bin',a.private,a.repo,a.channel,a.out,a.notes);print('Release built and verified:',a.out)
+  subprocess.run(['sh','firmware/build.sh'],cwd=ROOT,check=True,env=dict(os.environ,GRIDPLAY_PROGRAM=a.program))
+  package(ROOT/'firmware/dist/GridPlay.ino.bin',a.private,a.repo,a.channel,a.out,a.notes,a.program);print('Release built and verified:',a.out)
 if __name__=='__main__':main()
