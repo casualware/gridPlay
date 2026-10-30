@@ -1,15 +1,15 @@
 {
   "schema": 1,
-  "program": "test",
+  "program": "gptLive",
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.6-preview-test",
-  "sequence": 9006,
-  "size": 1954752,
-  "sha256": "8f0ef5d4c520ab938ff9a247c9a0de36b93993a03b96e2e55853d4b494db1d15",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.6-preview-test/gridplay-0.9.6-preview-test.bin",
-  "issued_at": 1793376152,
-  "expires_at": 1801152152,
-  "notes": "Simple local tap counter with shared Wi-Fi settings and signed program switching back to gptLive."
+  "version": "0.9.7-preview",
+  "sequence": 9007,
+  "size": 1955264,
+  "sha256": "82f64f060305bc7d3f8280607aa1481eb3832e9d48bd85e8c7ecf09a5c17f7c7",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.7-preview/gridplay-0.9.7-preview.bin",
+  "issued_at": 1793383987,
+  "expires_at": 1801159987,
+  "notes": "Keep voice and Stop responsive during large inst transfers; tolerate active inst traffic while awaiting acknowledgements; release session memory before reconnecting."
 }
