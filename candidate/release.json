@@ -1,15 +1,15 @@
 {
   "schema": 1,
-  "program": "gptLive",
+  "program": "test",
   "board": "waveshare-esp32s3-touch-amoled-2.16",
   "layout": "dual-6m-v1",
   "channel": "preview",
-  "version": "0.9.6-preview",
+  "version": "0.9.6-preview-test",
   "sequence": 9006,
-  "size": 1954240,
-  "sha256": "dc5941e647cd75e1211565c7a792ab6a9d5d19622c3e66df5b4d3c4cefaebe18",
-  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.6-preview/gridplay-0.9.6-preview.bin",
-  "issued_at": 1793376069,
-  "expires_at": 1801152069,
-  "notes": "Program selector with shared signed updates; gptLive default and test tap-counter switching."
+  "size": 1954752,
+  "sha256": "8f0ef5d4c520ab938ff9a247c9a0de36b93993a03b96e2e55853d4b494db1d15",
+  "url": "https://github.com/casualware/gridPlay/releases/download/v0.9.6-preview-test/gridplay-0.9.6-preview-test.bin",
+  "issued_at": 1793376152,
+  "expires_at": 1801152152,
+  "notes": "Simple local tap counter with shared Wi-Fi settings and signed program switching back to gptLive."
 }
